@@ -1,7 +1,8 @@
 import { ImageResponse } from "next/og";
 import { portfolio } from "@/data/portfolio";
+import { siteTitle } from "@/lib/site";
 
-export const alt = `${portfolio.person.name} | Portfolio`;
+export const alt = siteTitle;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

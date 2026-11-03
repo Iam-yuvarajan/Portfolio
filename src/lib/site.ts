@@ -11,7 +11,7 @@ export const siteUrl = (
     : "http://localhost:3000")
 ).replace(/\/$/, "");
 
-export const siteTitle = `${portfolio.person.name} | Portfolio`;
+export const siteTitle = `${portfolio.person.name} | AI Engineer, Builder`;
 
 /** Section ids, in page order. Used by the page and the command menu. */
 export const sections = [
