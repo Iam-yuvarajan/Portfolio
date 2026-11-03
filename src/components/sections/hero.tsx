@@ -2,6 +2,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
 import { hasValue } from "@/lib/utils";
 import { Avatar } from "@/components/avatar";
+import { Pronunciation } from "@/components/pronunciation";
 import { Badge } from "@/components/ui/badge";
 import { CopyChip, LinkChip } from "@/components/copy-chip";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
@@ -17,7 +18,8 @@ export function Hero() {
           <h1 id="hero-heading" className="text-3xl font-semibold tracking-tight sm:text-4xl">
             {person.name}
           </h1>
-          <p className="mt-1.5 text-base text-muted-foreground sm:text-lg">{person.role}</p>
+          <Pronunciation {...person.pronunciation} />
+          <p className="mt-2 text-base text-muted-foreground sm:text-lg">{person.role}</p>
           <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
             <MapPin className="size-4" aria-hidden />
             {person.location}

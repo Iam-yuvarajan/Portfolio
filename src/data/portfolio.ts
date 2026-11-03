@@ -15,6 +15,12 @@ export const portfolio: Portfolio = {
   person: {
     name: "Yuvarajan J",
     initials: "YJ",
+    // Edit if this isn't how you say it.
+    pronunciation: {
+      phonetic: "yoo-vuh-RAA-jun",
+      native: "யுவராஜன்",
+      spoken: "Yoo vuh raa jun",
+    },
     role: "ECE Student · Developer · AI Enthusiast",
     roles: ["Vibe Coder", "App Developer", "Website Builder", "AI Learner"],
     location: "Hosur, Tamil Nadu, India",
@@ -136,20 +142,23 @@ export const portfolio: Portfolio = {
     {
       degree: "B.E./B.Tech in Electronics and Communication Engineering",
       institution: "[[COLLEGE_NAME]]",
-      period: "[[START_YEAR]] – [[END_YEAR]]",
-      stats: [{ label: "CGPA", value: "[[CGPA]] / 10" }],
+      period: "2024 – Present",
+      stats: [
+        { label: "Current semester", value: "5th" },
+        { label: "CGPA (through 5th sem)", value: "6.5 / 10" },
+      ],
     },
     {
       degree: "Higher Secondary (12th)",
       institution: "[[12TH_SCHOOL_NAME]]",
-      period: "[[12TH_YEAR]]",
-      stats: [{ label: "Percentage", value: "[[12TH_PERCENTAGE]]%" }],
+      period: "2023 – 2024",
+      stats: [{ label: "Percentage", value: "72%" }],
     },
     {
       degree: "Secondary (10th)",
       institution: "[[10TH_SCHOOL_NAME]]",
-      period: "[[10TH_YEAR]]",
-      stats: [{ label: "Percentage", value: "[[10TH_PERCENTAGE]]%" }],
+      period: "2020 – 2021",
+      stats: [{ label: "Percentage", value: "75%" }],
     },
   ],
 

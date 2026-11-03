@@ -76,6 +76,15 @@ export interface Portfolio {
   person: {
     name: string;
     initials: string;
+    /** How to say your name. Shown under your name with a "listen" button. */
+    pronunciation: {
+      /** Phonetic spelling shown on the page. */
+      phonetic: string;
+      /** Name in native script; read aloud if the visitor's device has a Tamil voice. */
+      native: string;
+      /** Spelling fed to English text-to-speech when no Tamil voice exists. */
+      spoken: string;
+    };
     role: string;
     roles: string[];
     location: string;
