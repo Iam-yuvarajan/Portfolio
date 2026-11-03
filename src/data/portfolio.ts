@@ -29,7 +29,7 @@ export const portfolio: Portfolio = {
   ],
 
   contact: {
-    email: "yuva0051@gmail.com",
+    email: "yuvarajan278@gmail.com",
     emailSubject: "Hello Yuvarajan, let's connect",
     phoneDisplay: "+91 93420 38458",
     phone: "+919342038458",
