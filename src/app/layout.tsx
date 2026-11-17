@@ -1,12 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Karla, Pacifico, Source_Sans_3, Ubuntu_Mono } from "next/font/google";
 import { portfolio } from "@/data/portfolio";
 import { siteTitle, siteUrl } from "@/lib/site";
-import { Providers } from "@/components/providers";
+import { Toaster } from "sonner";
+import { ParticleField } from "@/components/particle-field";
+import { SiteRail } from "@/components/site-rail";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"], display: "swap" });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
+const karla = Karla({ variable: "--font-karla", subsets: ["latin"], display: "swap" });
+const pacifico = Pacifico({ variable: "--font-pacifico", subsets: ["latin"], display: "swap", weight: "400" });
+const sourceSans = Source_Sans_3({ variable: "--font-source-sans", subsets: ["latin"], display: "swap" });
+const ubuntuMono = Ubuntu_Mono({
+  variable: "--font-ubuntu-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
 
 const { person } = portfolio;
 
@@ -36,25 +45,38 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0c0c0f" },
-  ],
-  colorScheme: "light dark",
+  themeColor: "#000000",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // suppressHydrationWarning is required by next-themes (it sets the class before React loads).
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-dvh font-sans`}>
+    <html lang="en">
+      <body
+        className={`${karla.variable} ${pacifico.variable} ${sourceSans.variable} ${ubuntuMono.variable} min-h-dvh font-ui`}
+      >
         <a
           href="#main"
-          className="sr-only z-50 rounded-md bg-background px-3 py-2 text-sm font-medium shadow focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only fixed top-3 left-3 z-50 rounded-full bg-paper px-4 py-2 text-sm text-ink focus:not-sr-only"
         >
           Skip to content
         </a>
-        <Providers>{children}</Providers>
+        <ParticleField />
+        <SiteRail />
+        <main id="main" className="relative z-10 min-h-dvh">
+          {children}
+        </main>
+        <Toaster
+          theme="dark"
+          position="bottom-center"
+          toastOptions={{
+            style: {
+              background: "#0b0b0b",
+              color: "#fcf6f4",
+              border: "1px solid rgba(252,246,244,0.2)",
+            },
+          }}
+        />
       </body>
     </html>
   );

@@ -34,6 +34,41 @@ export const portfolio: Portfolio = {
     "I'm working toward a career in the IT industry. Alongside AI, I'm learning cloud technologies and cybersecurity, and I treat every project as a chance to learn something new. My goal is to keep turning ideas into practical solutions and to grow into a versatile IT professional.",
   ],
 
+  // Headline numbers for the Experience page. Edit these to match your journey.
+  stats: [
+    { value: "03", label: "projects shipped" },
+    { value: "05", label: "skill areas" },
+    { value: "2024", label: "started ECE" },
+    { value: "∞", label: "things to learn" },
+  ],
+
+  // Add your real roles/internships here. These are seeded from the projects
+  // and education already in this file — replace them whenever you're ready.
+  experience: [
+    {
+      role: "ECE Student & Self-taught Developer",
+      organization: "Sri Sairam College of Engineering",
+      period: "2024 – Present",
+      location: "Hosur, Tamil Nadu, India",
+      bullets: [
+        "Studying Electronics and Communication Engineering while building software on the side.",
+        "Learning cloud technologies and cybersecurity alongside AI and web development.",
+        "Treating every project as a chance to learn something new and ship it.",
+      ],
+    },
+    {
+      role: "Developer — Personal & Hackathon Projects",
+      organization: "Independent",
+      period: "2024 – Present",
+      location: "Remote",
+      bullets: [
+        "Built YUVA AI, a password-gated personal AI chat assistant.",
+        "Built Sollunga AI Bot, a Telegram order bot that understands Tamil, English and Tanglish.",
+        "Built Trust CV, a zero-trust integrity platform for computer vision pipelines, for Smart India Hackathon.",
+      ],
+    },
+  ],
+
   contact: {
     email: "yuvarajan278@gmail.com",
     emailSubject: "Hello Yuvarajan, let's connect",
@@ -45,10 +80,10 @@ export const portfolio: Portfolio = {
   socials: {
     githubUsername: "Iam-yuvarajan",
     github: "https://github.com/Iam-yuvarajan",
-    linkedin: "https://www.linkedin.com/in/yuvarajan-j-52a46a273/",
+    linkedin: "https://www.linkedin.com/in/yuvarajan-j26/",
     instagram: "https://www.instagram.com/_yuva._.rajan__/",
     // Optional: paste your profile URLs, or leave as-is to hide them.
-    leetcode: "[[OPTIONAL_PLACEHOLDER]]",
+    leetcode: "https://leetcode.com/u/yuvarajan_software",
     skillrack: "[[OPTIONAL_PLACEHOLDER]]",
   },
 
@@ -102,7 +137,7 @@ export const portfolio: Portfolio = {
       description:
         "A personal AI chat assistant where conversations are unlocked with a password, so only people I share it with can use it.",
       tags: ["JavaScript", "AI", "Web App"],
-      period: "[[PERIOD]]",
+      period: "Aug 2026",
       language: "JavaScript",
       links: {
         github: "https://github.com/Iam-yuvarajan/personal-ai",
@@ -115,11 +150,11 @@ export const portfolio: Portfolio = {
       description:
         "An AI-powered Telegram bot that takes orders for local Indian shops. Customers can order in Tamil, English or Tanglish.",
       tags: ["Python", "Telegram Bot", "AI"],
-      period: "[[PERIOD]]",
+      period: "Oct 2026",
       language: "Python",
       links: {
         github: "https://github.com/Iam-yuvarajan/solluga-ai",
-        live: "[[LIVE_URL_PLACEHOLDER]]",
+        live: "",
         caseStudy: "",
       },
     },
@@ -128,11 +163,50 @@ export const portfolio: Portfolio = {
       description:
         "A zero-trust integrity platform for computer vision pipelines, built for Smart India Hackathon. It adds cryptographic lineage and tamper evidence from dataset to model inference.",
       tags: ["Python", "Computer Vision", "SIH"],
-      period: "[[PERIOD]]",
+      period: "Sep 2026",
       language: "Python",
       links: {
         github: "https://github.com/Iam-yuvarajan/Trust-CV-SIH",
         live: "https://trust-cv-sih.vercel.app",
+        caseStudy: "",
+      },
+    },
+    {
+      title: "Four Worlds Portfolio",
+      description:
+        "A themed personal portfolio built with Next.js, TypeScript and GSAP, with an interactive Q&A panel, API routes and a GitHub contributions heatmap.",
+      tags: ["Next.js", "TypeScript", "GSAP"],
+      period: "Nov 2026",
+      language: "TypeScript",
+      links: {
+        github: "https://github.com/Iam-yuvarajan/yuvarajan-portfolio",
+        live: "https://jyuvarajan.vercel.app",
+        caseStudy: "",
+      },
+    },
+    {
+      title: "Password Generator",
+      description:
+        "A Python command-line tool that creates strong random passwords with a chosen length, mixing uppercase, lowercase, digits and special characters.",
+      tags: ["Python", "CLI", "Security"],
+      period: "Aug 2026",
+      language: "Python",
+      links: {
+        github: "https://github.com/Iam-yuvarajan/password-generator",
+        live: "",
+        caseStudy: "",
+      },
+    },
+    {
+      title: "Bunk Calc",
+      description:
+        "A small attendance calculator that tells you how many classes you can safely skip, or how many you need to attend to hit your target percentage.",
+      tags: ["HTML", "CSS", "JavaScript"],
+      period: "Oct 2026",
+      language: "HTML",
+      links: {
+        github: "https://github.com/Iam-yuvarajan/Bunk-Calc",
+        live: "",
         caseStudy: "",
       },
     },
@@ -141,24 +215,24 @@ export const portfolio: Portfolio = {
   education: [
     {
       degree: "B.E./B.Tech in Electronics and Communication Engineering",
-      institution: "[[COLLEGE_NAME]]",
+      institution: "Sri Sairam College of Engineering",
       period: "2024 – Present",
       stats: [
         { label: "Current semester", value: "5th" },
-        { label: "CGPA (through 5th sem)", value: "6.5 / 10" },
+        { label: "CGPA (through 5th sem)", value: "6.68 / 10" },
       ],
     },
     {
       degree: "Higher Secondary (12th)",
-      institution: "[[12TH_SCHOOL_NAME]]",
+      institution: "SDA Hr Sec School",
       period: "2023 – 2024",
-      stats: [{ label: "Percentage", value: "72%" }],
+      stats: [{ label: "Percentage", value: "75%" }],
     },
     {
       degree: "Secondary (10th)",
-      institution: "[[10TH_SCHOOL_NAME]]",
+      institution: "SDA Hr Sec School",
       period: "2020 – 2021",
-      stats: [{ label: "Percentage", value: "75%" }],
+      stats: [{ label: "Percentage", value: "77%" }],
     },
   ],
 

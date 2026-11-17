@@ -72,6 +72,19 @@ export interface Certification {
   link: string;
 }
 
+export interface Stat {
+  value: string;
+  label: string;
+}
+
+export interface Experience {
+  role: string;
+  organization: string;
+  period: string;
+  location?: string;
+  bullets: string[];
+}
+
 export interface Portfolio {
   person: {
     name: string;
@@ -93,6 +106,10 @@ export interface Portfolio {
     seoDescription: string;
   };
   about: string[];
+  /** Headline numbers shown on the Experience page. */
+  stats: Stat[];
+  /** Roles and projects timeline. Add your internships/jobs here. */
+  experience: Experience[];
   contact: {
     email: string;
     emailSubject: string;

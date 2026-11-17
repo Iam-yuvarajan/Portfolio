@@ -1,8 +1,9 @@
 "use client";
 
-import { m } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-/** Subtle fade/slide-in on scroll. Movement is disabled for reduced-motion users. */
+/** Fades and slides content in the first time it scrolls into view. */
 export function Reveal({
   children,
   className,
@@ -12,15 +13,17 @@ export function Reveal({
   className?: string;
   delay?: number;
 }) {
+  const reduced = useReducedMotion();
+
   return (
-    <m.div
-      className={className}
-      initial={{ opacity: 0, y: 14 }}
+    <motion.div
+      className={cn(className)}
+      initial={reduced ? false : { opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -60px 0px" }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.65, delay, ease: "easeOut" }}
     >
       {children}
-    </m.div>
+    </motion.div>
   );
 }

@@ -1,116 +1,56 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* ── Design tokens ─────────────────────────────────────────────────────────
-   Neutral (zinc-like) palette + one accent ("brand"). All text pairs meet
-   WCAG AA in both themes. */
+   Cream on black, with one display face (Pacifico) for the small handwritten
+   accents. Everything is dark — this is intentional, like the reference. */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.16 0.005 286);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.16 0.005 286);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.005 286);
-  --primary: oklch(0.21 0.006 286);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.967 0.001 286);
-  --secondary-foreground: oklch(0.21 0.006 286);
-  --muted: oklch(0.967 0.001 286);
-  --muted-foreground: oklch(0.47 0.012 286);
-  --accent: oklch(0.955 0.003 286);
-  --accent-foreground: oklch(0.21 0.006 286);
-  --border: oklch(0.92 0.004 286);
-  --input: oklch(0.88 0.004 286);
-  --ring: oklch(0.52 0.2 262);
-  --brand: oklch(0.52 0.2 262);
-  --brand-foreground: oklch(0.985 0 0);
-  --brand-soft: oklch(0.96 0.025 262);
-  --destructive: oklch(0.55 0.22 27);
-  --radius: 0.75rem;
-}
-
-.dark {
-  --background: oklch(0.145 0.004 286);
-  --foreground: oklch(0.97 0 0);
-  --card: oklch(0.175 0.005 286);
-  --card-foreground: oklch(0.97 0 0);
-  --popover: oklch(0.19 0.005 286);
-  --popover-foreground: oklch(0.97 0 0);
-  --primary: oklch(0.96 0 0);
-  --primary-foreground: oklch(0.2 0.006 286);
-  --secondary: oklch(0.24 0.006 286);
-  --secondary-foreground: oklch(0.97 0 0);
-  --muted: oklch(0.22 0.006 286);
-  --muted-foreground: oklch(0.72 0.012 286);
-  --accent: oklch(0.25 0.006 286);
-  --accent-foreground: oklch(0.97 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.72 0.15 258);
-  --brand: oklch(0.74 0.14 258);
-  --brand-foreground: oklch(0.18 0.03 262);
-  --brand-soft: oklch(0.26 0.05 262);
-  --destructive: oklch(0.7 0.19 22);
+  --paper: #fcf6f4;
+  --ink: #000000;
+  --line: rgba(252, 246, 244, 0.2);
+  --muted-ink: rgba(252, 246, 244, 0.62);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-brand: var(--brand);
-  --color-brand-foreground: var(--brand-foreground);
-  --color-brand-soft: var(--brand-soft);
-  --color-destructive: var(--destructive);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-line: var(--line);
+  --color-muted-ink: var(--muted-ink);
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --font-ui: var(--font-karla), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-script: var(--font-pacifico), cursive;
+  --font-mono: var(--font-ubuntu-mono), ui-monospace, monospace;
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   html {
+    background: var(--ink);
+    color-scheme: dark;
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
-    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "cv11", "ss01";
-    text-rendering: optimizeLegibility;
+    @apply bg-ink text-paper font-ui antialiased;
+    overflow-x: hidden;
   }
 
   ::selection {
-    background: var(--brand-soft);
+    background: var(--paper);
+    color: var(--ink);
   }
 
-  /* Visible, consistent keyboard focus everywhere. */
-  :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
-    outline: 2px solid var(--ring);
-    outline-offset: 2px;
+  /* The reference hides the scrollbar everywhere. */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    scrollbar-width: none;
+  }
+
+  :where(a, button, input, textarea, select, summary):focus-visible {
+    outline: 2px solid var(--paper);
+    outline-offset: 3px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -127,54 +67,137 @@
   }
 }
 
-/* Marks text that is still a [[PLACEHOLDER]]. */
+/* Marks text that is still a [[PLACEHOLDER]] in portfolio.ts. */
 @utility placeholder-value {
   border-radius: 0.375rem;
-  outline: 1.5px dashed color-mix(in oklch, var(--brand) 70%, transparent);
+  outline: 1.5px dashed color-mix(in srgb, var(--paper) 60%, transparent);
   outline-offset: 2px;
-  background: color-mix(in oklch, var(--brand-soft) 60%, transparent);
+  background: rgba(252, 246, 244, 0.06);
   padding-inline: 0.25rem;
 }
 
-/* Dialog enter/exit animations (Radix sets data-state). Tailwind v4 uses the
-   standalone `translate` property, so animating `scale` does not fight it. */
-@keyframes overlay-in {
-  from {
-    opacity: 0;
-  }
+/* Oversized watermark word behind each page heading. */
+@utility ghost-word {
+  position: absolute;
+  top: clamp(2rem, 7vw, 5rem);
+  right: -0.08em;
+  font-family: var(--font-source-sans), sans-serif;
+  font-size: clamp(5.5rem, 19vw, 17rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.07em;
+  color: rgba(252, 246, 244, 0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
 }
-@keyframes overlay-out {
-  to {
-    opacity: 0;
-  }
+
+@utility panel {
+  border: 1px solid var(--line);
+  background: rgba(252, 246, 244, 0.025);
 }
-@keyframes dialog-in {
-  from {
-    opacity: 0;
-    scale: 0.97;
-  }
+
+@utility eyebrow {
+  font-family: var(--font-ubuntu-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
 }
-@keyframes dialog-out {
-  to {
-    opacity: 0;
-    scale: 0.97;
+
+@utility field {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: transparent;
+  padding: 0.75rem 1rem;
+  color: var(--paper);
+  font-size: 0.9375rem;
+  transition: border-color 0.2s ease;
+
+  &::placeholder {
+    color: rgba(252, 246, 244, 0.4);
+  }
+  &:focus {
+    border-color: var(--paper);
   }
 }
 
-@utility animate-overlay {
-  &[data-state="open"] {
-    animation: overlay-in 150ms ease-out;
+@utility pill {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--paper);
+  border-radius: 999px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: color 0.25s ease;
+
+  /* Cream fill rises from the bottom edge on hover (the yazji.dev button feel). */
+  &::before {
+    content: \"\";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: -1;
+    height: 0;
+    background: var(--paper);
+    transition: height 0.3s ease;
   }
-  &[data-state="closed"] {
-    animation: overlay-out 120ms ease-in;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--ink);
+  }
+
+  &:hover::before,
+  &:focus-visible::before {
+    height: 100%;
   }
 }
 
-@utility animate-dialog {
-  &[data-state="open"] {
-    animation: dialog-in 180ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  &[data-state="closed"] {
-    animation: dialog-out 120ms ease-in;
-  }
+@utility cutout-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 30px 45px rgba(0, 0, 0, 0.75));
+}
+
+/* Project cards: hover (or keyboard focus) flips the card. */
+.flip-card {
+  width: 100%;
+  height: 270px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
 }
